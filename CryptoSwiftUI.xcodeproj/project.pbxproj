@@ -13,6 +13,8 @@
 		B9ADC9D72BB2EFDE00CE2EF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9ADC9D62BB2EFDE00CE2EF8 /* Assets.xcassets */; };
 		B9ADC9DA2BB2F02B00CE2EF8 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ADC9D92BB2F02B00CE2EF8 /* Color.swift */; };
 		B9ADC9E22BB2F69400CE2EF8 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ADC9E12BB2F69400CE2EF8 /* CircleButton.swift */; };
+		B9ADC9E42BB3060E00CE2EF8 /* CircleButtonAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ADC9E32BB3060E00CE2EF8 /* CircleButtonAnimation.swift */; };
+		B9ADC9E62BB3075200CE2EF8 /* CoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ADC9E52BB3075200CE2EF8 /* CoinModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		B9ADC9D62BB2EFDE00CE2EF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Preview Content/Assets.xcassets"; sourceTree = "<group>"; };
 		B9ADC9D92BB2F02B00CE2EF8 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		B9ADC9E12BB2F69400CE2EF8 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
+		B9ADC9E32BB3060E00CE2EF8 /* CircleButtonAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonAnimation.swift; sourceTree = "<group>"; };
+		B9ADC9E52BB3075200CE2EF8 /* CoinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,7 @@
 		B9ADC9DD2BB2F25A00CE2EF8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B9ADC9E52BB3075200CE2EF8 /* CoinModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -125,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				B9ADC9E12BB2F69400CE2EF8 /* CircleButton.swift */,
+				B9ADC9E32BB3060E00CE2EF8 /* CircleButtonAnimation.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -201,7 +207,9 @@
 			files = (
 				B9ADC9CB2BB2E0A000CE2EF8 /* HomeView.swift in Sources */,
 				B9ADC9C92BB2E0A000CE2EF8 /* CryptoSwiftUIApp.swift in Sources */,
+				B9ADC9E42BB3060E00CE2EF8 /* CircleButtonAnimation.swift in Sources */,
 				B9ADC9DA2BB2F02B00CE2EF8 /* Color.swift in Sources */,
+				B9ADC9E62BB3075200CE2EF8 /* CoinModel.swift in Sources */,
 				B9ADC9E22BB2F69400CE2EF8 /* CircleButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

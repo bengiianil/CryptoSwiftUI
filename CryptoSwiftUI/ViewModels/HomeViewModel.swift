@@ -18,7 +18,7 @@ class HomeViewModel: ObservableObject {
         addSubscriber()
     }
     
-    func addSubscriber() {
+    private func addSubscriber() {
         coinDataService.$allCoins.sink { [weak self] coins in
             guard let strongSelf = self else { return }
             strongSelf.allCoins = coins

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CoinImageView: View {
     @StateObject var imageViewModel: ImageViewModel
-    
+
     init(coin: CoinModel) {
         _imageViewModel = StateObject(wrappedValue: ImageViewModel(coin: coin))
     }
@@ -25,7 +25,6 @@ struct CoinImageView: View {
             Image(systemName: "questionmark")
                 .foregroundStyle(Color.theme.secondaryText)
         }
-        
     }
 }
 

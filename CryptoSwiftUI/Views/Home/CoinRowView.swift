@@ -36,7 +36,7 @@ extension CoinRowView {
                 .font(.caption)
                 .foregroundStyle(Color.theme.secondaryText)
                 .frame(minWidth: 30)
-            
+ 
             CoinImageView(coin: coin)
                 .frame(width: 30, height: 30)
             
@@ -69,6 +69,7 @@ extension CoinRowView {
                 let percentage = coin.priceChangePercentage24H ?? 0
                 Text(percentage.percentString())
                     .foregroundStyle(percentage >= 0 ? Color.theme.green : Color.theme.red)
+                    .font(.subheadline)
             }
         }
     }

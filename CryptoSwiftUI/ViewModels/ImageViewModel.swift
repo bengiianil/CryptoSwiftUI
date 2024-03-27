@@ -12,7 +12,7 @@ import SwiftUI
 class ImageViewModel: ObservableObject {
     
     @Published var image: UIImage? = nil
-    @Published var isLoading = false
+    @Published var isLoading = true
     private let coin: CoinModel
     private let coinImageService: CoinImageService
     private var cancellable = Set<AnyCancellable>()
@@ -27,6 +27,7 @@ class ImageViewModel: ObservableObject {
         coinImageService.$image.sink { [weak self] image in
             guard let strongSelf = self else { return }
             strongSelf.image = image
+            strongSelf.isLoading = false
         }
         .store(in: &cancellable)
     }

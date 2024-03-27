@@ -11,7 +11,6 @@ struct HomeView: View {
     @EnvironmentObject private var homeViewModel: HomeViewModel
     @State var searchedText = ""
     @State var showPortfolio = false
-    @State var coins = ["coin1", "coin2", "coin3", "coin4"]
 
     var body: some View {
         ZStack {

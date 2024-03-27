@@ -39,22 +39,14 @@ class CoinDataService {
         */
         
    
-        URLSession.shared.dataTaskPublisher(for: url)
-            .subscribe(on: DispatchQueue.global(qos: .background))
-            .receive(on: DispatchQueue.main)
-            .tryMap { (output) -> Data in
-                guard let response = output.response as? HTTPURLResponse,
-                      response.statusCode >= 200 && response.statusCode < 300 else {
-                    throw URLError(.badServerResponse)
-                }
-                return output.data
-            }
+        NetworkManager.fetchData(url: url)
             .decode(type: [CoinModel].self, decoder: JSONDecoder())
             .replaceError(with: [])
-            .sink { [weak self] coins in
+            .sink(receiveCompletion: { (completion) in
+                NetworkManager.handleCompletion(completion: completion)
+            }, receiveValue: { [weak self] coins in
                 self?.allCoins = coins
-            }
+            })
             .store(in: &cancellables)
-
     }
 }

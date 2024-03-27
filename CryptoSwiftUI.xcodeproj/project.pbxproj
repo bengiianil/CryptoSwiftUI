@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B90CDEE72BB45C9F00EF61AD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90CDEE62BB45C9F00EF61AD /* NetworkManager.swift */; };
 		B9ADC9C92BB2E0A000CE2EF8 /* CryptoSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ADC9C82BB2E0A000CE2EF8 /* CryptoSwiftUIApp.swift */; };
 		B9ADC9CB2BB2E0A000CE2EF8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ADC9CA2BB2E0A000CE2EF8 /* HomeView.swift */; };
 		B9ADC9D02BB2E0A000CE2EF8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9ADC9CF2BB2E0A000CE2EF8 /* Preview Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B90CDEE62BB45C9F00EF61AD /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B9ADC9C52BB2E0A000CE2EF8 /* CryptoSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9ADC9C82BB2E0A000CE2EF8 /* CryptoSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoSwiftUIApp.swift; sourceTree = "<group>"; };
 		B9ADC9CA2BB2E0A000CE2EF8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		B9ADC9DE2BB2F29100CE2EF8 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				B90CDEE62BB45C9F00EF61AD /* NetworkManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B90CDEE72BB45C9F00EF61AD /* NetworkManager.swift in Sources */,
 				B9ADC9CB2BB2E0A000CE2EF8 /* HomeView.swift in Sources */,
 				B9ADC9EC2BB313CF00CE2EF8 /* Double+.swift in Sources */,
 				B9ADC9C92BB2E0A000CE2EF8 /* CryptoSwiftUIApp.swift in Sources */,

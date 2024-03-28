@@ -31,6 +31,9 @@
 		B9D63EFC2BB5DAC000F96A19 /* MarketDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D63EFB2BB5DAC000F96A19 /* MarketDataModel.swift */; };
 		B9D63EFE2BB5DC2900F96A19 /* MarketDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D63EFD2BB5DC2900F96A19 /* MarketDataService.swift */; };
 		B9D63F002BB5E32900F96A19 /* PortfolioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D63EFF2BB5E32900F96A19 /* PortfolioView.swift */; };
+		B9D63F052BB5E80A00F96A19 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D63F042BB5E80A00F96A19 /* CloseButton.swift */; };
+		B9D63F072BB5EB8100F96A19 /* CoinLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D63F062BB5EB8100F96A19 /* CoinLogoView.swift */; };
+		B9D63F092BB5F43700F96A19 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D63F082BB5F43700F96A19 /* UIApplication+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +62,9 @@
 		B9D63EFB2BB5DAC000F96A19 /* MarketDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataModel.swift; sourceTree = "<group>"; };
 		B9D63EFD2BB5DC2900F96A19 /* MarketDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataService.swift; sourceTree = "<group>"; };
 		B9D63EFF2BB5E32900F96A19 /* PortfolioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioView.swift; sourceTree = "<group>"; };
+		B9D63F042BB5E80A00F96A19 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
+		B9D63F062BB5EB8100F96A19 /* CoinLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinLogoView.swift; sourceTree = "<group>"; };
+		B9D63F082BB5F43700F96A19 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				B9ADC9EB2BB313CF00CE2EF8 /* Double+.swift */,
+				B9D63F082BB5F43700F96A19 /* UIApplication+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -171,8 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				B9D63F032BB5E62200F96A19 /* Main */,
-				B9D63F022BB5E61E00F96A19 /* Coin */,
 				B9D63F012BB5E61B00F96A19 /* Portfolio */,
+				B9D63F022BB5E61E00F96A19 /* Coin */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -183,6 +190,7 @@
 				B9ADC9E12BB2F69400CE2EF8 /* CircleButton.swift */,
 				B9ADC9E32BB3060E00CE2EF8 /* CircleButtonAnimation.swift */,
 				B90CDEF32BB5C04500EF61AD /* StatisticView.swift */,
+				B9D63F042BB5E80A00F96A19 /* CloseButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -210,6 +218,7 @@
 			children = (
 				B9ADC9E72BB30C8D00CE2EF8 /* CoinRowView.swift */,
 				B90CDEEA2BB465D000EF61AD /* CoinImageView.swift */,
+				B9D63F062BB5EB8100F96A19 /* CoinLogoView.swift */,
 			);
 			path = Coin;
 			sourceTree = "<group>";
@@ -295,8 +304,10 @@
 			files = (
 				B90CDEE72BB45C9F00EF61AD /* NetworkManager.swift in Sources */,
 				B90CDEF62BB5C48500EF61AD /* HomeStatisticsView.swift in Sources */,
+				B9D63F072BB5EB8100F96A19 /* CoinLogoView.swift in Sources */,
 				B9ADC9CB2BB2E0A000CE2EF8 /* HomeView.swift in Sources */,
 				B9D63EFC2BB5DAC000F96A19 /* MarketDataModel.swift in Sources */,
+				B9D63F092BB5F43700F96A19 /* UIApplication+.swift in Sources */,
 				B90CDEF22BB5BF6400EF61AD /* StatisticModel.swift in Sources */,
 				B9D63EFE2BB5DC2900F96A19 /* MarketDataService.swift in Sources */,
 				B9ADC9EC2BB313CF00CE2EF8 /* Double+.swift in Sources */,
@@ -304,6 +315,7 @@
 				B9ADC9EE2BB3346500CE2EF8 /* HomeViewModel.swift in Sources */,
 				B90CDEEB2BB465D000EF61AD /* CoinImageView.swift in Sources */,
 				B90CDEF42BB5C04500EF61AD /* StatisticView.swift in Sources */,
+				B9D63F052BB5E80A00F96A19 /* CloseButton.swift in Sources */,
 				B9ADC9E42BB3060E00CE2EF8 /* CircleButtonAnimation.swift in Sources */,
 				B90CDEF02BB48D3200EF61AD /* LocalFileManager.swift in Sources */,
 				B9ADC9DA2BB2F02B00CE2EF8 /* Color.swift in Sources */,

@@ -9,9 +9,9 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject private var homeViewModel: HomeViewModel
-    @State var showPortfolio = false
-    @State var showPortfolioSheet = false
-    @State var searchedText = ""
+    @State private var showPortfolio = false
+    @State private var showPortfolioSheet = false
+    @State private var searchedText = ""
 
     var body: some View {
         ZStack {

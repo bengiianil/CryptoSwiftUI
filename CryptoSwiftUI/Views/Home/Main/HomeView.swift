@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject private var homeViewModel: HomeViewModel
     @State var showPortfolio = false
+    @State var showPortfolioSheet = false
     @State var searchedText = ""
 
     var body: some View {
@@ -33,10 +34,14 @@ struct HomeView: View {
                 Spacer()
             }
         }
+        .searchable(text: $searchedText, prompt: "Search by name or symbol...")
         .onChange(of: searchedText) {
             homeViewModel.applyFilter(text: searchedText)
         }
-        .searchable(text: $searchedText, prompt: "Search by name or symbol...")
+        .sheet(isPresented: $showPortfolioSheet) {
+            PortfolioView()
+                .environmentObject(homeViewModel)
+        }
     }
 }
 
@@ -53,6 +58,11 @@ extension HomeView {
             CircleButton(imageName: showPortfolio ? "plus" : "info")
                 .animation(.none, value: showPortfolio)
                 .background(CircleButtonAnimation(animate: $showPortfolio))
+                .onTapGesture {
+                    if showPortfolio {
+                        showPortfolioSheet.toggle()
+                    }
+                }
             Spacer()
             
             Text(showPortfolio ? "Portfolio" : "Live Prices")

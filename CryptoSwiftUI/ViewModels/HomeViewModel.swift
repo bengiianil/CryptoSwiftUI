@@ -32,7 +32,9 @@ class HomeViewModel: ObservableObject {
     func applyFilter(text: String) {
         var searchedCoins: [CoinModel] {
             text.isEmpty ? allCoins : allCoins.filter {
-                $0.name.range(of: text, options: .caseInsensitive) != nil
+                $0.name.range(of: text, options: .caseInsensitive) != nil ||
+                $0.symbol.range(of: text, options: .caseInsensitive) != nil ||
+                $0.id.range(of: text, options: .caseInsensitive) != nil
             }
         }
         coins = searchedCoins

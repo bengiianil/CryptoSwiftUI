@@ -9,8 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject private var homeViewModel: HomeViewModel
-    @State var searchedText = ""
     @State var showPortfolio = false
+    @State var searchedText = ""
 
     var body: some View {
         ZStack {
@@ -31,8 +31,11 @@ struct HomeView: View {
                 
                 Spacer()
             }
-            .searchable(text: $searchedText, prompt: "Search by name or symbol...")
         }
+        .onChange(of: searchedText) {
+            homeViewModel.applyFilter(text: searchedText)
+        }
+        .searchable(text: $searchedText, prompt: "Search by name or symbol...")
     }
 }
 
@@ -71,7 +74,7 @@ extension HomeView {
     
     private var allCoinsListView: some View {
         List {
-            ForEach(homeViewModel.allCoins) { coin in
+            ForEach(homeViewModel.coins) { coin in
                 CoinRowView(coin: coin, showHoldingsColumn: false)
                     .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
             }

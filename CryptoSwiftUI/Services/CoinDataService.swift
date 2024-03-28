@@ -38,7 +38,6 @@ class CoinDataService {
         // 7. store (cancel subscription if needed)
         */
         
-   
         NetworkManager.fetchData(url: url)
             .decode(type: [CoinModel].self, decoder: JSONDecoder())
             .replaceError(with: [])

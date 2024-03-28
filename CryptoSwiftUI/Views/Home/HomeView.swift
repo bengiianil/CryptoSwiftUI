@@ -19,6 +19,7 @@ struct HomeView: View {
             
             VStack {
                 homeHeaderView
+                HomeStatisticsView(showPortfolio: $showPortfolio)
                 columnTitles
                 
                 if !showPortfolio {

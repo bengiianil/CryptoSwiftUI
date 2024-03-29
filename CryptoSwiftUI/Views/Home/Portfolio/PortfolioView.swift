@@ -15,15 +15,19 @@ struct PortfolioView: View {
     @State private var showCheckmark: Bool = false
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
-                coinLogoList
-                
-                if selectedCoin != nil {
-                    portfolioInputSection
+                VStack {
+                    coinLogoList
+
+                    if selectedCoin != nil {
+                        portfolioInputSection
+                    }
                 }
+                .navigationBarTitleDisplayMode(.large)
+                .navigationTitle("Edit Portfolio")
             }
-            .navigationTitle("Edit Portfolio")
+            .searchable(text: $searchedText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search by name or symbol...")
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     CloseButton()
@@ -33,7 +37,11 @@ struct PortfolioView: View {
                     trailingNavBarButton
                 }
             }
-            .searchable(text: $searchedText, prompt: "Search by name or symbol...")
+            .onChange(of: searchedText) {
+                if searchedText == "" {
+                    removeSelectedCoin()
+                }
+            }
         }
     }
 }
@@ -58,11 +66,10 @@ extension PortfolioView {
                         }
                         .background(
                             RoundedRectangle(cornerRadius: 10)
-                                .stroke(selectedCoin?.id == coin.id ?  Color.theme.accent : Color.clear, lineWidth: 1)
+                                .stroke(selectedCoin?.id == coin.id ?  Color.theme.green : Color.clear, lineWidth: 1)
                         )
                 }
             }
-//            .frame(height: 120)
             .padding()
         }
     }

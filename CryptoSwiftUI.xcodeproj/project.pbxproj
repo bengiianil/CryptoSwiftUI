@@ -34,6 +34,8 @@
 		B9D63F052BB5E80A00F96A19 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D63F042BB5E80A00F96A19 /* CloseButton.swift */; };
 		B9D63F072BB5EB8100F96A19 /* CoinLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D63F062BB5EB8100F96A19 /* CoinLogoView.swift */; };
 		B9D63F092BB5F43700F96A19 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D63F082BB5F43700F96A19 /* UIApplication+.swift */; };
+		B9D63F0C2BB6DB2D00F96A19 /* PortfolioContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9D63F0A2BB6DB2D00F96A19 /* PortfolioContainer.xcdatamodeld */; };
+		B9D63F0E2BB6DC3700F96A19 /* PortfolioDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D63F0D2BB6DC3700F96A19 /* PortfolioDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,8 @@
 		B9D63F042BB5E80A00F96A19 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		B9D63F062BB5EB8100F96A19 /* CoinLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinLogoView.swift; sourceTree = "<group>"; };
 		B9D63F082BB5F43700F96A19 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
+		B9D63F0B2BB6DB2D00F96A19 /* PortfolioContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PortfolioContainer.xcdatamodel; sourceTree = "<group>"; };
+		B9D63F0D2BB6DC3700F96A19 /* PortfolioDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioDataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +166,7 @@
 				B9ADC9E52BB3075200CE2EF8 /* CoinModel.swift */,
 				B90CDEF12BB5BF6400EF61AD /* StatisticModel.swift */,
 				B9D63EFB2BB5DAC000F96A19 /* MarketDataModel.swift */,
+				B9D63F0A2BB6DB2D00F96A19 /* PortfolioContainer.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -201,6 +206,7 @@
 				B9ADC9F02BB33F4C00CE2EF8 /* CoinDataService.swift */,
 				B90CDEEC2BB466B400EF61AD /* CoinImageService.swift */,
 				B9D63EFD2BB5DC2900F96A19 /* MarketDataService.swift */,
+				B9D63F0D2BB6DC3700F96A19 /* PortfolioDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -303,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B90CDEE72BB45C9F00EF61AD /* NetworkManager.swift in Sources */,
+				B9D63F0E2BB6DC3700F96A19 /* PortfolioDataService.swift in Sources */,
 				B90CDEF62BB5C48500EF61AD /* HomeStatisticsView.swift in Sources */,
 				B9D63F072BB5EB8100F96A19 /* CoinLogoView.swift in Sources */,
 				B9ADC9CB2BB2E0A000CE2EF8 /* HomeView.swift in Sources */,
@@ -324,6 +331,7 @@
 				B9ADC9E82BB30C8D00CE2EF8 /* CoinRowView.swift in Sources */,
 				B9ADC9E22BB2F69400CE2EF8 /* CircleButton.swift in Sources */,
 				B9ADC9F12BB33F4C00CE2EF8 /* CoinDataService.swift in Sources */,
+				B9D63F0C2BB6DB2D00F96A19 /* PortfolioContainer.xcdatamodeld in Sources */,
 				B9D63F002BB5E32900F96A19 /* PortfolioView.swift in Sources */,
 				B90CDEED2BB466B400EF61AD /* CoinImageService.swift in Sources */,
 				B90CDEE92BB465B700EF61AD /* ImageViewModel.swift in Sources */,
@@ -540,6 +548,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B9D63F0A2BB6DB2D00F96A19 /* PortfolioContainer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B9D63F0B2BB6DB2D00F96A19 /* PortfolioContainer.xcdatamodel */,
+			);
+			currentVersion = B9D63F0B2BB6DB2D00F96A19 /* PortfolioContainer.xcdatamodel */;
+			path = PortfolioContainer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B9ADC9BD2BB2E0A000CE2EF8 /* Project object */;
 }

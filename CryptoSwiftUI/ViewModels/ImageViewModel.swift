@@ -15,7 +15,7 @@ class ImageViewModel: ObservableObject {
     @Published var isLoading = true
     private let coin: CoinModel
     private let coinImageService: CoinImageService
-    private var cancellable = Set<AnyCancellable>()
+    private var cancellables = Set<AnyCancellable>()
 
     init(coin: CoinModel) {
         self.coin = coin
@@ -29,6 +29,6 @@ class ImageViewModel: ObservableObject {
             strongSelf.image = image
             strongSelf.isLoading = false
         }
-        .store(in: &cancellable)
+        .store(in: &cancellables)
     }
 }

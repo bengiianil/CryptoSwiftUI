@@ -25,6 +25,8 @@ class NetworkManager {
               response.statusCode >= 200 && response.statusCode < 300 else {
             throw URLError(.badServerResponse)
         }
+        print("Status Code: \(response.statusCode)")
+        print(output.data)
         return output.data
     }
     

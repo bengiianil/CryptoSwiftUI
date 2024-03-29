@@ -14,6 +14,7 @@ class HomeViewModel: ObservableObject {
     @Published var allCoins = [CoinModel]()
     @Published var coins = [CoinModel]()
     @Published var potfolioCoins = [CoinModel]()
+    @Published var isLoading = false
 
     private let coinDataService = CoinDataService()
     private let marketDataService = MarketDataService()
@@ -32,26 +33,22 @@ class HomeViewModel: ObservableObject {
         }
         .store(in: &cancellables)
         
+        $allCoins
+            .combineLatest(portfolioDataService.$savedEntities) // the entity binding wait until we receive allCoins
+            .map(mapAllCoinsToPortfolioCoins)
+            .sink { [weak self] coins in
+                guard let strongSelf = self else { return }
+                strongSelf.potfolioCoins = coins
+            }
+            .store(in: &cancellables)
+        
         marketDataService.$marketData
+            .combineLatest($potfolioCoins)
             .map(mapMarketData)
             .sink { [weak self] data in
-            guard let strongSelf = self else { return }
-            strongSelf.statistics = data
-        }
-        .store(in: &cancellables)
-        
-        $allCoins.combineLatest(portfolioDataService.$savedEntities) // the entity binding wait until we receive allCoins
-            .map { (coinModels, portfolioEntities) -> [CoinModel] in
-                
-                coinModels.compactMap { coin in
-                    if let entity = portfolioEntities.first(where: { $0.coinId == coin.id }) {
-                        return coin.updateHoldings(amount: entity.amount)
-                    }
-                    return nil
-                }
-            }
-            .sink { coins in
-                self.potfolioCoins = coins
+                guard let strongSelf = self else { return }
+                strongSelf.statistics = data
+                strongSelf.isLoading = false
             }
             .store(in: &cancellables)
     }
@@ -67,14 +64,42 @@ class HomeViewModel: ObservableObject {
         coins = searchedCoins
     }
     
-    private func mapMarketData(marketDataModel: MarketDataModel?) -> [StatisticModel] {
+    func reloadData() {
+        isLoading = true
+        coinDataService.getCoins()
+        marketDataService.getMarketData()
+    }
+    
+    private func mapAllCoinsToPortfolioCoins(allCoins: [CoinModel], portfolioEntities: [PortfolioEntity]) -> [CoinModel] {
+         allCoins.compactMap { (coin) -> CoinModel? in
+             guard let entity = portfolioEntities.first(where: { $0.coinId == coin.id }) else {
+                 return nil
+             }
+             return coin .updateHoldings(amount: entity.amount)
+         }
+     }
+     
+    private func mapMarketData(marketDataModel: MarketDataModel?, portfolioCoins: [CoinModel]) -> [StatisticModel] {
         var statistics: [StatisticModel] = []
         guard let data = marketDataModel else { return statistics }
         
+        let portfolioValue = portfolioCoins.map { $0.currentHoldingsValue }
+                                           .reduce(0, +)
+        
+        let previousValue = portfolioCoins.map { (coin) -> Double in
+            let currentValue = coin.currentHoldingsValue
+            let percentChange = coin.priceChangePercentage24H ?? 0 / 100
+            let previousValue = currentValue / (1 + percentChange)
+            return previousValue
+        }
+        .reduce(0, +)
+        
+        let percentValue = ((portfolioValue - previousValue) / previousValue)
+
         let marketCap = StatisticModel(title: "Market Cap", value: data.marketCap, percentageChange: data.marketCapChangePercentage24HUsd)
-        let volume = StatisticModel(title: "24h Volume", value: data.marketCap, percentageChange: data.marketCapChangePercentage24HUsd)
-        let dominance = StatisticModel(title: "BTC Dominance", value: data.marketCap, percentageChange: data.marketCapChangePercentage24HUsd)
-        let portfolio = StatisticModel(title: "Portfolio Volume", value: data.marketCap, percentageChange: data.marketCapChangePercentage24HUsd)
+        let volume = StatisticModel(title: "24h Volume", value: data.volume)
+        let dominance = StatisticModel(title: "BTC Dominance", value: data.btcDominance)
+        let portfolio = StatisticModel(title: "Portfolio Volume", value: portfolioValue.percentString(), percentageChange: percentValue)
         
         statistics.append(contentsOf: [marketCap, volume, dominance, portfolio])
         return statistics

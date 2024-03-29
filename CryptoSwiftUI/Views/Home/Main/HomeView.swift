@@ -107,11 +107,21 @@ extension HomeView {
         HStack {
             Text("Coin")
             Spacer()
+            
             if showPortfolio {
                 Text("Holdings")
             }
             Spacer()
+            
             Text("Price")
+            Button {
+                withAnimation(.linear(duration: 2)) {
+                    homeViewModel.reloadData()
+                }
+            } label: {
+                Image(systemName: "goforward")
+            }
+            .rotationEffect(Angle(degrees: homeViewModel.isLoading ? 360 : 0), anchor: .center)
         }
         .padding(.horizontal)
         .font(.caption)

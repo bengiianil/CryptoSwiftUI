@@ -38,6 +38,7 @@
 		B9D63F0E2BB6DC3700F96A19 /* PortfolioDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D63F0D2BB6DC3700F96A19 /* PortfolioDataService.swift */; };
 		B9D63F102BB7168400F96A19 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D63F0F2BB7168400F96A19 /* HapticManager.swift */; };
 		B9D63F122BB98CBC00F96A19 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D63F112BB98CBC00F96A19 /* SearchBarView.swift */; };
+		B9D63F182BB9B43A00F96A19 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D63F172BB9B43A00F96A19 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		B9D63F0D2BB6DC3700F96A19 /* PortfolioDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioDataService.swift; sourceTree = "<group>"; };
 		B9D63F0F2BB7168400F96A19 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		B9D63F112BB98CBC00F96A19 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		B9D63F172BB9B43A00F96A19 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				B9ADC9DF2BB2F3A900CE2EF8 /* Home */,
+				B9D63F162BB9B42F00F96A19 /* Detail */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -244,6 +247,14 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		B9D63F162BB9B42F00F96A19 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				B9D63F172BB9B43A00F96A19 /* DetailView.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -327,6 +338,7 @@
 				B9ADC9EC2BB313CF00CE2EF8 /* Double+.swift in Sources */,
 				B9ADC9C92BB2E0A000CE2EF8 /* CryptoSwiftUIApp.swift in Sources */,
 				B9ADC9EE2BB3346500CE2EF8 /* HomeViewModel.swift in Sources */,
+				B9D63F182BB9B43A00F96A19 /* DetailView.swift in Sources */,
 				B90CDEEB2BB465D000EF61AD /* CoinImageView.swift in Sources */,
 				B90CDEF42BB5C04500EF61AD /* StatisticView.swift in Sources */,
 				B9D63F052BB5E80A00F96A19 /* CloseButton.swift in Sources */,

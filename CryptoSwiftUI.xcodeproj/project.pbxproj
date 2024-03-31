@@ -36,6 +36,7 @@
 		B9D63F092BB5F43700F96A19 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D63F082BB5F43700F96A19 /* UIApplication+.swift */; };
 		B9D63F0C2BB6DB2D00F96A19 /* PortfolioContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9D63F0A2BB6DB2D00F96A19 /* PortfolioContainer.xcdatamodeld */; };
 		B9D63F0E2BB6DC3700F96A19 /* PortfolioDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D63F0D2BB6DC3700F96A19 /* PortfolioDataService.swift */; };
+		B9D63F102BB7168400F96A19 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D63F0F2BB7168400F96A19 /* HapticManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		B9D63F082BB5F43700F96A19 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
 		B9D63F0B2BB6DB2D00F96A19 /* PortfolioContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PortfolioContainer.xcdatamodel; sourceTree = "<group>"; };
 		B9D63F0D2BB6DC3700F96A19 /* PortfolioDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioDataService.swift; sourceTree = "<group>"; };
+		B9D63F0F2BB7168400F96A19 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				B90CDEE62BB45C9F00EF61AD /* NetworkManager.swift */,
+				B9D63F0F2BB7168400F96A19 /* HapticManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 			files = (
 				B90CDEE72BB45C9F00EF61AD /* NetworkManager.swift in Sources */,
 				B9D63F0E2BB6DC3700F96A19 /* PortfolioDataService.swift in Sources */,
+				B9D63F102BB7168400F96A19 /* HapticManager.swift in Sources */,
 				B90CDEF62BB5C48500EF61AD /* HomeStatisticsView.swift in Sources */,
 				B9D63F072BB5EB8100F96A19 /* CoinLogoView.swift in Sources */,
 				B9ADC9CB2BB2E0A000CE2EF8 /* HomeView.swift in Sources */,

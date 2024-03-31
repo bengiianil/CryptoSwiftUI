@@ -8,11 +8,11 @@
 import Foundation
 import SwiftUI
 
-class DeveloperPreview {
-    static let instance = DeveloperPreview()
+class Preview {
+    static let instance = Preview()
     private init() { }
     
-    let homeViewModel = HomeViewModel()
+    let viewModel = HomeViewModel()
     let statistic = StatisticModel(title: "Market Cap", value: "$12.5Bn", percentageChange: 25.34)
     let coin = CoinModel(
            id: "bitcoin",

@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
-    @EnvironmentObject private var homeViewModel: HomeViewModel
+    @EnvironmentObject private var viewModel: HomeViewModel
     @State private var showPortfolio = false
     @State private var showPortfolioSheet = false
-    @State private var searchedText = ""
 
     var body: some View {
         ZStack {
@@ -21,8 +20,9 @@ struct HomeView: View {
             VStack {
                 homeHeaderView
                 HomeStatisticsView(showPortfolio: $showPortfolio)
+                SearchBarView(searchedText: $viewModel.searchedText)
+
                 columnTitles
-                
                 if !showPortfolio {
                     allCoinsListView
                         .transition(.move(edge: .leading))
@@ -34,13 +34,9 @@ struct HomeView: View {
                 Spacer()
             }
         }
-        .searchable(text: $searchedText, prompt: "Search by name or symbol...")
-        .onChange(of: searchedText) {
-            homeViewModel.applyFilter(text: searchedText)
-        }
         .sheet(isPresented: $showPortfolioSheet) {
             PortfolioView()
-                .environmentObject(homeViewModel)
+                .environmentObject(viewModel)
         }
     }
 }
@@ -48,7 +44,7 @@ struct HomeView: View {
 #Preview {
     NavigationView {
         HomeView()
-            .environmentObject(DeveloperPreview.instance.homeViewModel)
+            .environmentObject(Preview.instance.viewModel)
     }
 }
 
@@ -85,7 +81,7 @@ extension HomeView {
     
     private var allCoinsListView: some View {
         List {
-            ForEach(homeViewModel.coins) { coin in
+            ForEach(viewModel.allCoins) { coin in
                 CoinRowView(coin: coin, showHoldingsColumn: false)
                     .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
             }
@@ -95,7 +91,7 @@ extension HomeView {
     
     private var portfolioCoinsListView: some View {
         List {
-            ForEach(homeViewModel.potfolioCoins) { coin in
+            ForEach(viewModel.potfolioCoins) { coin in
                 CoinRowView(coin: coin, showHoldingsColumn: true)
                     .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
             }
@@ -105,23 +101,57 @@ extension HomeView {
     
     private var columnTitles: some View {
         HStack {
-            Text("Coin")
+            HStack(spacing: 4) {
+                Text("Coin")
+                Image(systemName: "chevron.down")
+                    .opacity(viewModel.isRank ? 1 : 0)
+                    .rotationEffect(Angle(degrees: viewModel.sortOption == .rank ? 0: 180))
+            }
+            .onTapGesture {
+                withAnimation(.default) {
+                    viewModel.sortOption = viewModel.sortOption == .rank ? .rankReversed : .rank
+                }
+            }
+
             Spacer()
             
             if showPortfolio {
-                Text("Holdings")
+                HStack(spacing: 4) {
+                    Text("Holdings")
+                    Image(systemName: "chevron.down")
+                        .opacity(viewModel.isHoldings ? 1 : 0)
+                        .rotationEffect(Angle(degrees: viewModel.sortOption == .holdings ? 0: 180))
+                }
+                .onTapGesture {
+                    withAnimation(.default) {
+                        viewModel.sortOption = viewModel.sortOption == .holdings ? .holdingsReversed : .holdings
+                    }
+                }
             }
+            
             Spacer()
             
-            Text("Price")
+            HStack(spacing: 4) {
+                Text("Price")
+                Image(systemName: "chevron.down")
+                    .opacity(viewModel.isPrice ? 1 : 0)
+                    .rotationEffect(Angle(degrees: viewModel.sortOption == .price ? 0: 180))
+            }
+            .onTapGesture {
+                withAnimation(.default) {
+                    viewModel.sortOption = viewModel.sortOption == .price ? .priceReversed : .price
+                }
+            }
+            
             Button {
                 withAnimation(.linear(duration: 2)) {
-                    homeViewModel.reloadData()
+                    viewModel.reloadData()
                 }
             } label: {
                 Image(systemName: "goforward")
             }
-            .rotationEffect(Angle(degrees: homeViewModel.isLoading ? 360 : 0), anchor: .center)
+            .rotationEffect(Angle(degrees: viewModel.isLoading ? 360 : 0), anchor: .center)
+
         }
         .padding(.horizontal)
         .font(.caption)

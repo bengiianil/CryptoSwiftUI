@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct HomeStatisticsView: View {
-    @EnvironmentObject private var homeViewModel: HomeViewModel
+    @EnvironmentObject private var viewModel: HomeViewModel
     @Binding var showPortfolio: Bool
 
     var body: some View {
         HStack {
-            ForEach(homeViewModel.statistics) { statistic in
+            ForEach(viewModel.statistics) { statistic in
                 StatisticView(statistic: statistic)
                     .frame(width: UIScreen.main.bounds.width / 3)
             }
@@ -26,5 +26,5 @@ struct HomeStatisticsView: View {
 
 #Preview {
     HomeStatisticsView(showPortfolio: .constant(false))
-        .environmentObject(DeveloperPreview.instance.homeViewModel)
+        .environmentObject(Preview.instance.viewModel)
 }

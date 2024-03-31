@@ -37,6 +37,7 @@
 		B9D63F0C2BB6DB2D00F96A19 /* PortfolioContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9D63F0A2BB6DB2D00F96A19 /* PortfolioContainer.xcdatamodeld */; };
 		B9D63F0E2BB6DC3700F96A19 /* PortfolioDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D63F0D2BB6DC3700F96A19 /* PortfolioDataService.swift */; };
 		B9D63F102BB7168400F96A19 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D63F0F2BB7168400F96A19 /* HapticManager.swift */; };
+		B9D63F122BB98CBC00F96A19 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D63F112BB98CBC00F96A19 /* SearchBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		B9D63F0B2BB6DB2D00F96A19 /* PortfolioContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PortfolioContainer.xcdatamodel; sourceTree = "<group>"; };
 		B9D63F0D2BB6DC3700F96A19 /* PortfolioDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioDataService.swift; sourceTree = "<group>"; };
 		B9D63F0F2BB7168400F96A19 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		B9D63F112BB98CBC00F96A19 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 				B9ADC9E32BB3060E00CE2EF8 /* CircleButtonAnimation.swift */,
 				B90CDEF32BB5C04500EF61AD /* StatisticView.swift */,
 				B9D63F042BB5E80A00F96A19 /* CloseButton.swift */,
+				B9D63F112BB98CBC00F96A19 /* SearchBarView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				B9D63F052BB5E80A00F96A19 /* CloseButton.swift in Sources */,
 				B9ADC9E42BB3060E00CE2EF8 /* CircleButtonAnimation.swift in Sources */,
 				B90CDEF02BB48D3200EF61AD /* LocalFileManager.swift in Sources */,
+				B9D63F122BB98CBC00F96A19 /* SearchBarView.swift in Sources */,
 				B9ADC9DA2BB2F02B00CE2EF8 /* Color.swift in Sources */,
 				B9ADC9E62BB3075200CE2EF8 /* CoinModel.swift in Sources */,
 				B9ADC9EA2BB30D5700CE2EF8 /* PreviewProvider.swift in Sources */,

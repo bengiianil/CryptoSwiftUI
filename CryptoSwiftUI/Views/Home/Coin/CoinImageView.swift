@@ -29,5 +29,5 @@ struct CoinImageView: View {
 }
 
 #Preview {
-    CoinImageView(coin: DeveloperPreview.instance.coin)
+    CoinImageView(coin: Preview.instance.coin)
 }

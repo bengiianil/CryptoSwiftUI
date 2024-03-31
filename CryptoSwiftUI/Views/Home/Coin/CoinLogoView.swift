@@ -33,5 +33,5 @@ struct CoinLogoView: View {
 }
 
 #Preview {
-    CoinLogoView(coin: DeveloperPreview.instance.coin)
+    CoinLogoView(coin: Preview.instance.coin)
 }

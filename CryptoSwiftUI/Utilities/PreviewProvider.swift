@@ -12,7 +12,7 @@ class Preview {
     static let instance = Preview()
     private init() { }
     
-    let viewModel = HomeViewModel()
+    let homeViewModel = HomeViewModel()
     let statistic = StatisticModel(title: "Market Cap", value: "$12.5Bn", percentageChange: 25.34)
     let coin = CoinModel(
            id: "bitcoin",

@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct CryptoSwiftUIApp: App {
-    @StateObject private var viewModel = HomeViewModel()
+    @StateObject private var homeViewModel = HomeViewModel()
     
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor : UIColor(Color.theme.accent)]
@@ -22,7 +22,7 @@ struct CryptoSwiftUIApp: App {
                 HomeView()
                     .navigationBarBackButtonHidden()
             }
-            .environmentObject(viewModel)
+            .environmentObject(homeViewModel)
         }
     }
 }

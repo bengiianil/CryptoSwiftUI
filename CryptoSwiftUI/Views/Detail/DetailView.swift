@@ -38,6 +38,8 @@ struct DetailView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
+                
+                Text("Crypto Tab")
 
                 overviewTitle
                 Divider()

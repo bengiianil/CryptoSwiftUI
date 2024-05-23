@@ -40,7 +40,7 @@ class CoinDataService {
         
         NetworkManager.fetchData(url: url)
             .decode(type: [CoinModel].self, decoder: JSONDecoder())
-            .replaceError(with: [])
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { (completion) in
                 NetworkManager.handleCompletion(completion: completion)
             }, receiveValue: { [weak self] coins in

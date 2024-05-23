@@ -21,7 +21,7 @@ class MarketDataService {
 
         NetworkManager.fetchData(url: url)
             .decode(type: GlobalData.self, decoder: JSONDecoder())
-            .replaceError(with: GlobalData(data: nil))
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { (completion) in
                 NetworkManager.handleCompletion(completion: completion)
             }, receiveValue: { [weak self] globalData in

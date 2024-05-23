@@ -39,6 +39,9 @@
 		B9D63F102BB7168400F96A19 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D63F0F2BB7168400F96A19 /* HapticManager.swift */; };
 		B9D63F122BB98CBC00F96A19 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D63F112BB98CBC00F96A19 /* SearchBarView.swift */; };
 		B9D63F182BB9B43A00F96A19 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D63F172BB9B43A00F96A19 /* DetailView.swift */; };
+		B9D63F1C2BB9BC4B00F96A19 /* CoinDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D63F1B2BB9BC4B00F96A19 /* CoinDetailModel.swift */; };
+		B9D63F1E2BB9BD6500F96A19 /* CoinDetailDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D63F1D2BB9BD6500F96A19 /* CoinDetailDataService.swift */; };
+		B9DBBFD82BFF7D5500C4C760 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DBBFD72BFF7D5500C4C760 /* DetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +78,9 @@
 		B9D63F0F2BB7168400F96A19 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		B9D63F112BB98CBC00F96A19 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		B9D63F172BB9B43A00F96A19 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		B9D63F1B2BB9BC4B00F96A19 /* CoinDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailModel.swift; sourceTree = "<group>"; };
+		B9D63F1D2BB9BD6500F96A19 /* CoinDetailDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailDataService.swift; sourceTree = "<group>"; };
+		B9DBBFD72BFF7D5500C4C760 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +169,7 @@
 			children = (
 				B9ADC9ED2BB3346500CE2EF8 /* HomeViewModel.swift */,
 				B90CDEE82BB465B700EF61AD /* ImageViewModel.swift */,
+				B9DBBFD72BFF7D5500C4C760 /* DetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -171,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				B9ADC9E52BB3075200CE2EF8 /* CoinModel.swift */,
+				B9D63F1B2BB9BC4B00F96A19 /* CoinDetailModel.swift */,
 				B90CDEF12BB5BF6400EF61AD /* StatisticModel.swift */,
 				B9D63EFB2BB5DAC000F96A19 /* MarketDataModel.swift */,
 				B9D63F0A2BB6DB2D00F96A19 /* PortfolioContainer.xcdatamodeld */,
@@ -213,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				B9ADC9F02BB33F4C00CE2EF8 /* CoinDataService.swift */,
+				B9D63F1D2BB9BD6500F96A19 /* CoinDetailDataService.swift */,
 				B90CDEEC2BB466B400EF61AD /* CoinImageService.swift */,
 				B9D63EFD2BB5DC2900F96A19 /* MarketDataService.swift */,
 				B9D63F0D2BB6DC3700F96A19 /* PortfolioDataService.swift */,
@@ -333,6 +342,7 @@
 				B9ADC9CB2BB2E0A000CE2EF8 /* HomeView.swift in Sources */,
 				B9D63EFC2BB5DAC000F96A19 /* MarketDataModel.swift in Sources */,
 				B9D63F092BB5F43700F96A19 /* UIApplication+.swift in Sources */,
+				B9D63F1C2BB9BC4B00F96A19 /* CoinDetailModel.swift in Sources */,
 				B90CDEF22BB5BF6400EF61AD /* StatisticModel.swift in Sources */,
 				B9D63EFE2BB5DC2900F96A19 /* MarketDataService.swift in Sources */,
 				B9ADC9EC2BB313CF00CE2EF8 /* Double+.swift in Sources */,
@@ -353,7 +363,9 @@
 				B9ADC9F12BB33F4C00CE2EF8 /* CoinDataService.swift in Sources */,
 				B9D63F0C2BB6DB2D00F96A19 /* PortfolioContainer.xcdatamodeld in Sources */,
 				B9D63F002BB5E32900F96A19 /* PortfolioView.swift in Sources */,
+				B9D63F1E2BB9BD6500F96A19 /* CoinDetailDataService.swift in Sources */,
 				B90CDEED2BB466B400EF61AD /* CoinImageService.swift in Sources */,
+				B9DBBFD82BFF7D5500C4C760 /* DetailViewModel.swift in Sources */,
 				B90CDEE92BB465B700EF61AD /* ImageViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

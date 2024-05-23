@@ -41,7 +41,7 @@ class DetailViewModel: ObservableObject {
       }
     
     private func createOverviewArray(coinModel: CoinModel) -> [StatisticModel] {
-        let price = coinModel.currentPrice.doubleToString()
+        let price = coinModel.currentPrice.currencyToString()
         let pricePercentChange = coinModel.priceChangePercentage24H
         let priceStat = StatisticModel(title: "Current Price", value: price, percentageChange: pricePercentChange)
 
@@ -63,13 +63,13 @@ class DetailViewModel: ObservableObject {
     }
       
     private func createAdditionalArray(coinDetailModel: CoinDetailModel?, coinModel: CoinModel) -> [StatisticModel] {
-        let high = coinModel.high24H?.doubleToString() ?? "n/a"
+        let high = coinModel.high24H?.currencyToString() ?? "n/a"
         let highStat = StatisticModel(title: "24h High", value: high)
         
-        let low = coinModel.low24H?.doubleToString() ?? "n/a"
+        let low = coinModel.low24H?.currencyToString() ?? "n/a"
         let lowStat = StatisticModel(title: "24h Low", value: low)
         
-        let priceChange = coinModel.priceChange24H?.doubleToString() ?? "n/a"
+        let priceChange = coinModel.priceChange24H?.currencyToString() ?? "n/a"
         let pricePercentChange = coinModel.priceChangePercentage24H
         let priceChangeStat = StatisticModel(title: "24h Price Change", value: priceChange, percentageChange: pricePercentChange)
         

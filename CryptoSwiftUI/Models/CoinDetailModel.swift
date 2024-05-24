@@ -20,9 +20,9 @@ struct CoinDetailModel: Codable {
         case hashingAlgorithm = "hashing_algorithm"
     }
     
-//    var readableDescription: String? {
-//        return description?.en?.removingHTMLOccurances
-//    }
+    var readableDescription: String? {
+        return description?.en?.removingHTMLOccurances
+    }
     
     init(id: String?, symbol: String?, name: String?, blockTimeInMinutes: Int?, hashingAlgorithm: String?, description: Description?, links: Links?) {
         self.id = id

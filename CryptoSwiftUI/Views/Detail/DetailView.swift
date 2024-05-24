@@ -25,7 +25,8 @@ struct DetailLoadingView: View {
 
 struct DetailView: View {
     @StateObject private var detailViewModel: DetailViewModel
-    
+    @State private var showFullDescription: Bool = false
+
     private let columns: [GridItem] = [GridItem(.flexible()),
                                        GridItem(.flexible())]
     private let spacing: CGFloat = 30
@@ -45,11 +46,14 @@ struct DetailView: View {
                 VStack(spacing: 20) {
                     overviewTitle
                     Divider()
+                    descriptionSection
                     overviewGrid
                     
                     additionalTitle
                     Divider()
                     additionalGrid
+                    
+                    websiteSection
                 }
                 .padding()
             }
@@ -79,6 +83,33 @@ extension DetailView {
             
             CoinImageView(coin: detailViewModel.coin)
                 .frame(width: 25, height: 25)
+        }
+    }
+    
+    private var descriptionSection: some View {
+        ZStack {
+            if let coinDescription = detailViewModel.coinDescription, !coinDescription.isEmpty {
+                
+                VStack(alignment: .leading) {
+                    Text(coinDescription)
+                        .lineLimit(showFullDescription ? nil : 3)
+                        .font(.callout)
+                        .foregroundStyle(Color.theme.secondaryText)
+                    
+                    Button {
+                        withAnimation(.easeInOut) {
+                            showFullDescription.toggle()
+                        }
+                    } label: {
+                        Text(showFullDescription ? "Less" : "Read more...")
+                            .font(.caption)
+                            .bold()
+                            .padding(.vertical, 4)
+                    }
+                    .tint(.blue)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
         }
     }
     
@@ -122,5 +153,21 @@ extension DetailView {
                     StatisticView(statistic: statistic)
                 }
         })
+    }
+    
+    private var websiteSection: some View {
+        VStack(alignment: .leading, spacing: 20) {
+            if let websiteString = detailViewModel.websiteUrl,
+               let websiteUrl = URL(string: websiteString) {
+                Link("Website", destination: websiteUrl)
+            }
+            
+            if let redditString = detailViewModel.redditUrl,
+               let redditUrl = URL(string: redditString) {
+                Link("Reddit", destination: redditUrl)
+            }
+        }
+        .tint(.blue)
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }

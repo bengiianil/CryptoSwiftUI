@@ -46,6 +46,8 @@
 		B9DBBFDC2BFFA10300C4C760 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DBBFDB2BFFA10300C4C760 /* Date+.swift */; };
 		B9DBBFDE2BFFABC600C4C760 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DBBFDD2BFFABC600C4C760 /* String+.swift */; };
 		B9E9A4142C00959C000B6070 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E9A4132C00959C000B6070 /* SettingsView.swift */; };
+		B9E9A4192C009E6D000B6070 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9E9A4182C009E6D000B6070 /* LaunchScreen.storyboard */; };
+		B9E9A4402C00A9B0000B6070 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E9A43F2C00A9B0000B6070 /* LaunchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +91,9 @@
 		B9DBBFDB2BFFA10300C4C760 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		B9DBBFDD2BFFABC600C4C760 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		B9E9A4132C00959C000B6070 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B9E9A4182C009E6D000B6070 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B9E9A43E2C00A8C1000B6070 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B9E9A43F2C00A9B0000B6070 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +136,7 @@
 		B9ADC9C72BB2E0A000CE2EF8 /* CryptoSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				B9E9A43E2C00A8C1000B6070 /* Info.plist */,
 				B9ADC9C82BB2E0A000CE2EF8 /* CryptoSwiftUIApp.swift */,
 				B9ADC9E02BB2F66800CE2EF8 /* Components */,
 				B9ADC9DB2BB2F24D00CE2EF8 /* Views */,
@@ -168,6 +174,7 @@
 		B9ADC9DB2BB2F24D00CE2EF8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B9E9A4172C009E5A000B6070 /* Launch */,
 				B9ADC9DF2BB2F3A900CE2EF8 /* Home */,
 				B9D63F162BB9B42F00F96A19 /* Detail */,
 				B9E9A4122C009587000B6070 /* Settings */,
@@ -284,6 +291,15 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		B9E9A4172C009E5A000B6070 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				B9E9A4182C009E6D000B6070 /* LaunchScreen.storyboard */,
+				B9E9A43F2C00A9B0000B6070 /* LaunchView.swift */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -343,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9ADC9D02BB2E0A000CE2EF8 /* Preview Assets.xcassets in Resources */,
+				B9E9A4192C009E6D000B6070 /* LaunchScreen.storyboard in Resources */,
 				B9ADC9D72BB2EFDE00CE2EF8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,6 +378,7 @@
 				B9D63F072BB5EB8100F96A19 /* CoinLogoView.swift in Sources */,
 				B9ADC9CB2BB2E0A000CE2EF8 /* HomeView.swift in Sources */,
 				B9E9A4142C00959C000B6070 /* SettingsView.swift in Sources */,
+				B9E9A4402C00A9B0000B6070 /* LaunchView.swift in Sources */,
 				B9D63EFC2BB5DAC000F96A19 /* MarketDataModel.swift in Sources */,
 				B9DBBFDC2BFFA10300C4C760 /* Date+.swift in Sources */,
 				B9D63F092BB5F43700F96A19 /* UIApplication+.swift in Sources */,
@@ -527,10 +545,12 @@
 				DEVELOPMENT_TEAM = 5YFKG5KHYZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CryptoSwiftUI/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Crypto Tracker";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -560,10 +580,12 @@
 				DEVELOPMENT_TEAM = 5YFKG5KHYZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CryptoSwiftUI/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Crypto Tracker";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (

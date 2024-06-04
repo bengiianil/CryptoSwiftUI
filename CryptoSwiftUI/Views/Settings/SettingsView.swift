@@ -13,9 +13,16 @@ struct SettingsView: View {
 
     var body: some View {
         NavigationView {
-            List {
-                developerSection
-                coinSection
+            ZStack {
+                Color.theme.background
+                    .ignoresSafeArea()
+                
+                List {
+                    developerSection
+                        .listRowBackground(Color.theme.background.opacity(0.5))
+                    coinSection
+                        .listRowBackground(Color.theme.background.opacity(0.5))
+                }
             }
             .font(.headline)
             .tint(Color.blue)

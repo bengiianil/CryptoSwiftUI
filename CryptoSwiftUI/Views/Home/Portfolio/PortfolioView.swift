@@ -10,7 +10,6 @@ import SwiftUI
 struct PortfolioView: View {
     @EnvironmentObject private var homeViewModel: HomeViewModel
     @State private var selectedCoin: CoinModel? = nil
-    @State private var searchedText = ""
     @State private var quantityText: String = ""
     @State private var showCheckmark: Bool = false
     
@@ -18,6 +17,7 @@ struct PortfolioView: View {
         NavigationStack {
             ScrollView {
                 VStack {
+                    SearchBarView(searchedText: $homeViewModel.searchedText)
                     coinLogoList
 
                     if selectedCoin != nil {
@@ -27,18 +27,20 @@ struct PortfolioView: View {
                 .navigationBarTitleDisplayMode(.large)
                 .navigationTitle("Edit Portfolio")
             }
-            .searchable(text: $searchedText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search by name or symbol...")
+            .background(
+                Color.theme.background
+                    .ignoresSafeArea()
+            )
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     CloseButton()
                 }
-                
                 ToolbarItem(placement: .topBarTrailing) {
                     trailingNavBarButton
                 }
             }
-            .onChange(of: searchedText) {
-                if searchedText == "" {
+            .onChange(of: homeViewModel.searchedText) {
+                if homeViewModel.searchedText == "" {
                     removeSelectedCoin()
                 }
             }
@@ -55,7 +57,7 @@ extension PortfolioView {
     private var coinLogoList: some View {
         ScrollView(.horizontal ,showsIndicators: false) {
             LazyHStack(spacing: 10) {
-                ForEach(homeViewModel.allCoins) { coin in
+                ForEach(homeViewModel.searchedText.isEmpty ? homeViewModel.potfolioCoins : homeViewModel.allCoins) { coin in
                     CoinLogoView(coin: coin)
                         .frame(width: 75)
                         .padding(4)
@@ -163,6 +165,6 @@ extension PortfolioView {
     
     private func removeSelectedCoin() {
         selectedCoin = nil
-        searchedText = ""
+        homeViewModel.searchedText = ""
     }
 }

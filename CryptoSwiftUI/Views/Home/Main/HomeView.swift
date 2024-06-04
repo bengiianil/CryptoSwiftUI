@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject private var homeViewModel: HomeViewModel
     @State private var showPortfolio = false
-    @State private var showPortfolioSheet = false
+    @State private var showPortfolioView = false
     @State private var showDetailView = false
     @State private var showSettingsView = false
     @State private var selectedCoin: CoinModel? = nil
@@ -19,27 +19,38 @@ struct HomeView: View {
         ZStack {
             Color.theme.background
                 .ignoresSafeArea()
-
+            
             VStack {
                 homeHeaderView
                 HomeStatisticsView(showPortfolio: $showPortfolio)
                 SearchBarView(searchedText: $homeViewModel.searchedText)
 
                 columnTitles
+                
                 if !showPortfolio {
                     allCoinsListView
                         .transition(.move(edge: .leading))
                 } else {
-                    portfolioCoinsListView
-                        .transition(.move(edge: .trailing))
+                    ZStack(alignment: .top) {
+                        if homeViewModel.potfolioCoins.isEmpty &&
+                            homeViewModel.searchedText.isEmpty {
+                            portfolioEmptyText
+                        } else {
+                            portfolioCoinsListView
+                        }
+                    }
+                    .transition(.move(edge: .trailing))
                 }
                 
                 Spacer()
             }
         }
-     
         .sheet(isPresented: $showSettingsView) {
             SettingsView()
+        }
+        .sheet(isPresented: $showPortfolioView) {
+            PortfolioView()
+                .environmentObject(homeViewModel)
         }
         .background(
             NavigationLink(destination: DetailLoadingView(coin: $selectedCoin),
@@ -61,14 +72,15 @@ extension HomeView {
         HStack {
             CircleButton(imageName: showPortfolio ? "plus" : "info")
                 .animation(.none, value: showPortfolio)
-                .background(CircleButtonAnimation(animate: $showPortfolio))
                 .onTapGesture {
                     if showPortfolio {
-                        showPortfolioSheet.toggle()
+                        showPortfolioView.toggle()
                     } else {
                         showSettingsView.toggle()
                     }
                 }
+                .background(CircleButtonAnimation(animate: $showPortfolio))
+
             Spacer()
             
             Text(showPortfolio ? "Portfolio" : "Live Prices")
@@ -97,6 +109,7 @@ extension HomeView {
                     .onTapGesture {
                         segue(coin: coin)
                     }
+                    .listRowBackground(Color.theme.background)
             }
         }
         .listStyle(PlainListStyle())
@@ -110,9 +123,19 @@ extension HomeView {
                     .onTapGesture {
                         segue(coin: coin)
                     }
+                    .listRowBackground(Color.theme.background)
             }
         }
         .listStyle(PlainListStyle())
+    }
+    
+    private var portfolioEmptyText: some View {
+        Text("You haven't added any coins to your portfolio yet. Click the + button to get started!")
+            .font(.callout)
+            .foregroundColor(Color.theme.accent)
+            .fontWeight(.medium)
+            .multilineTextAlignment(.center)
+            .padding(50)
     }
     
     private func segue(coin: CoinModel) {

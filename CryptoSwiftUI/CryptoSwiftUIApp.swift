@@ -25,6 +25,7 @@ struct CryptoSwiftUIApp: App {
                     HomeView()
                         .navigationBarBackButtonHidden()
                 }
+                .navigationViewStyle(StackNavigationViewStyle())
                 .environmentObject(homeViewModel)
                 
                 ZStack {

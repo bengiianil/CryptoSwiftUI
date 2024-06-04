@@ -12,11 +12,10 @@ class NetworkManager {
 
     static func fetchData(url: URL) -> AnyPublisher<Data, Error> {
         URLSession.shared.dataTaskPublisher(for: url)
-            .subscribe(on: DispatchQueue.global(qos: .background))
-            .receive(on: DispatchQueue.main)
             .tryMap { (output) -> Data in
                 try handleUrlResponse(output: output)
             }
+            .retry(1)
             .eraseToAnyPublisher()
     }
     
@@ -25,8 +24,6 @@ class NetworkManager {
               response.statusCode >= 200 && response.statusCode < 300 else {
             throw URLError(.badServerResponse)
         }
-        print("Status Code: \(response.statusCode)")
-        print(output.data)
         return output.data
     }
     
